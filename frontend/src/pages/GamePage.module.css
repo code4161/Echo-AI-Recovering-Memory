@@ -1,0 +1,41 @@
+/*
+ * Two layouts, one breakpoint at 1024px:
+ *   wide   — Echo, conversation and journal side by side
+ *   narrow — Echo as a strip on top, one tabbed panel below
+ */
+.game {
+  height: 100%;
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  grid-template-columns: 300px minmax(0, 1fr) 330px;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+@media (max-width: 1240px) {
+  .game {
+    grid-template-columns: 260px minmax(0, 1fr) 290px;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 1024px) {
+  .game {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .game {
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+}
+
+.tabs {
+  /* Sits between the Echo strip and the active panel. */
+  align-self: start;
+}

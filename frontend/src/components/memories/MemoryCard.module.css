@@ -1,0 +1,72 @@
+.card {
+  position: relative;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition:
+    background var(--normal) var(--ease),
+    border-color var(--normal) var(--ease),
+    opacity var(--normal) var(--ease);
+}
+
+.restored {
+  background: color-mix(in srgb, var(--mood) 11%, transparent);
+  border-color: color-mix(in srgb, var(--mood) 32%, transparent);
+}
+
+.locked {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.lockedTitle {
+  color: var(--text-dim);
+  letter-spacing: 0.22em;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--mood);
+  box-shadow: 0 0 8px var(--mood);
+}
+
+.text {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.hint {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}
+
+.fresh {
+  animation: reveal 1.1s var(--ease);
+}
+
+@keyframes reveal {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--mood) 60%, transparent);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 18px transparent;
+  }
+}

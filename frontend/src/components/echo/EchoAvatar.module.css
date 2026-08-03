@@ -1,0 +1,239 @@
+.avatar {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  /* Fallback when no ancestor sets an emotion. */
+  --mood: var(--emotion-neutral);
+}
+
+.sm {
+  width: 44px;
+}
+.md {
+  width: 120px;
+}
+.lg {
+  width: min(210px, 46vw);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ----- Body ----- */
+
+.aura {
+  fill: var(--mood);
+  opacity: 0.16;
+  filter: blur(10px);
+  animation: breathe 4.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.14;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+.aura {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.body {
+  fill: color-mix(in srgb, var(--mood) 26%, #131736);
+  stroke: color-mix(in srgb, var(--mood) 65%, transparent);
+  stroke-width: 2;
+}
+
+.shine {
+  fill: #ffffff;
+  opacity: 0.14;
+}
+
+.antennaStem {
+  stroke: color-mix(in srgb, var(--mood) 65%, transparent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.antennaTip {
+  fill: var(--mood);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blip 3.2s ease-in-out infinite;
+}
+
+@keyframes blip {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+/* ----- Face ----- */
+
+.eyes {
+  fill: #f4f7ff;
+  stroke: #f4f7ff;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 5.4s ease-in-out infinite;
+}
+
+/* Arc-shaped eyes are already closed, so they must not blink. */
+.eyesStatic {
+  animation: none;
+}
+
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.08);
+  }
+}
+
+.eyeArc {
+  fill: none;
+  stroke: #f4f7ff;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+}
+
+.pupilShine {
+  fill: var(--mood);
+  opacity: 0.9;
+}
+
+.mouth {
+  fill: none;
+  stroke: #f4f7ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.mouthFilled {
+  fill: #f4f7ff;
+  stroke: none;
+}
+
+.speaking .mouth {
+  animation: talk 0.42s ease-in-out infinite;
+}
+
+@keyframes talk {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.55);
+  }
+}
+
+.blush {
+  fill: var(--mood);
+  opacity: 0.42;
+}
+
+.tear {
+  fill: var(--emotion-curious);
+  opacity: 0.75;
+  animation: fall 3.4s ease-in infinite;
+  transform-box: fill-box;
+}
+
+@keyframes fall {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+/* ----- Emotion quirks ----- */
+
+.afraid .svg {
+  animation: float 6s ease-in-out infinite, shiver 0.32s linear infinite;
+}
+
+@keyframes shiver {
+  0%,
+  100% {
+    margin-left: -1px;
+  }
+  50% {
+    margin-left: 1px;
+  }
+}
+
+.curious .face {
+  transform: rotate(-6deg);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--normal) var(--ease);
+}
+
+.sparkle {
+  fill: var(--mood);
+  animation: twinkle 2.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.sparkle:nth-of-type(2) {
+  animation-delay: 0.7s;
+}
+
+.sparkle:nth-of-type(3) {
+  animation-delay: 1.4s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+}

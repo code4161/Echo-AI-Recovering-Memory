@@ -1,0 +1,95 @@
+/**
+ * Design tokens. Every component reads from these, so retheming the game
+ * means editing this file and nothing else.
+ */
+
+:root {
+  /* Surfaces */
+  --bg: #0a0c18;
+  --bg-soft: #10142a;
+  --surface: rgba(24, 29, 56, 0.66);
+  --surface-solid: #181d38;
+  --surface-raised: rgba(38, 45, 82, 0.72);
+  --border: rgba(150, 168, 230, 0.16);
+  --border-strong: rgba(150, 168, 230, 0.3);
+
+  /* Text */
+  --text: #e9edfb;
+  --text-soft: #b3bcda;
+  --text-dim: #7d87ab;
+
+  /* Brand */
+  --accent: #7cd4fd;
+  --accent-2: #f2a9f5;
+  --accent-grad: linear-gradient(120deg, #7cd4fd, #f2a9f5);
+  --danger: #fda4af;
+
+  /*
+   * Emotions. Each has a base hue and a soft variant; components only ever
+   * reference --mood / --mood-soft, which the [data-emotion] rules below set.
+   */
+  --emotion-neutral: #8fb4f0;
+  --emotion-happy: #ffd479;
+  --emotion-curious: #7cd4fd;
+  --emotion-sad: #8fa5d6;
+  --emotion-afraid: #b8a7f7;
+  --emotion-nostalgic: #f2a9f5;
+
+  /* Shape */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Depth */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 32px color-mix(in srgb, var(--mood, var(--accent)) 30%, transparent);
+
+  /* Rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  /* Type */
+  --font: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  --font-display: 'Segoe UI', system-ui, sans-serif;
+  --text-xs: 0.72rem;
+  --text-sm: 0.84rem;
+  --text-md: 0.95rem;
+  --text-lg: 1.15rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 0.16s;
+  --normal: 0.3s;
+  --slow: 0.6s;
+
+  color-scheme: dark;
+}
+
+/**
+ * Emotion theming. Any element carrying data-emotion re-points --mood, and
+ * every descendant picks up the new colour automatically.
+ */
+[data-emotion='neutral'] {
+  --mood: var(--emotion-neutral);
+}
+[data-emotion='happy'] {
+  --mood: var(--emotion-happy);
+}
+[data-emotion='curious'] {
+  --mood: var(--emotion-curious);
+}
+[data-emotion='sad'] {
+  --mood: var(--emotion-sad);
+}
+[data-emotion='afraid'] {
+  --mood: var(--emotion-afraid);
+}
+[data-emotion='nostalgic'] {
+  --mood: var(--emotion-nostalgic);
+}

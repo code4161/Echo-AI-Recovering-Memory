@@ -1,0 +1,92 @@
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.name {
+  font-size: var(--text-lg);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.line {
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.meterWrap {
+  width: 100%;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border);
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Compact horizontal layout for narrow screens: avatar beside the meter. */
+@media (max-width: 1024px) {
+  .stage {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .avatarSlot {
+    flex: 0 0 auto;
+    width: 78px;
+  }
+
+  .info {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .line {
+    display: none;
+  }
+
+  /* Connection state has to stay visible here too, so the column shrinks
+     rather than disappearing. */
+  .actions {
+    flex: 0 0 auto;
+    width: auto;
+    gap: var(--space-2);
+  }
+
+  .meterWrap {
+    padding-top: 0;
+    border-top: none;
+  }
+}

@@ -1,0 +1,56 @@
+.meter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.level {
+  font-size: var(--text-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.value {
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.blurb {
+  font-size: var(--text-sm);
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.next {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}
+
+/* Briefly celebrates crossing into a new friendship band. */
+.levelUp {
+  animation: flash 1.6s var(--ease);
+}
+
+@keyframes flash {
+  0% {
+    filter: brightness(2.2);
+    transform: scale(1.06);
+  }
+  100% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+}

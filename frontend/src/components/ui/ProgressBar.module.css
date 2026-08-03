@@ -1,0 +1,43 @@
+.track {
+  position: relative;
+  height: 8px;
+  width: 100%;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--accent-grad);
+  transition: width var(--slow) var(--ease);
+}
+
+/* Uses the ambient --mood set by an ancestor's data-emotion. */
+.moodFill {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--mood, var(--accent)) 70%, #ffffff 0%),
+    var(--mood, var(--accent))
+  );
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: translateX(-100%);
+  animation: sweep 2.6s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  60%,
+  100% {
+    transform: translateX(100%);
+  }
+}

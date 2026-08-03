@@ -1,0 +1,71 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--tone-border);
+  background: var(--tone-bg);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-soft);
+  white-space: nowrap;
+}
+
+.live {
+  --tone: #6ee7a8;
+  --tone-bg: rgba(110, 231, 168, 0.1);
+  --tone-border: rgba(110, 231, 168, 0.3);
+}
+
+.offline {
+  --tone: #ffd479;
+  --tone-bg: rgba(255, 212, 121, 0.1);
+  --tone-border: rgba(255, 212, 121, 0.3);
+}
+
+.pending {
+  --tone: #7cd4fd;
+  --tone-bg: rgba(124, 212, 253, 0.1);
+  --tone-border: rgba(124, 212, 253, 0.3);
+}
+
+.down {
+  --tone: #fda4af;
+  --tone-bg: rgba(253, 164, 175, 0.12);
+  --tone-border: rgba(253, 164, 175, 0.35);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 8px var(--tone);
+}
+
+.pending .dot {
+  animation: throb 1.2s ease-in-out infinite;
+}
+
+@keyframes throb {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.retry {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--tone);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}

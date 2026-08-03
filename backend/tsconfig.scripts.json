@@ -1,0 +1,10 @@
+{
+  // The build compiles src/ only, so the test harness in scripts/ would go
+  // unchecked. This checks it without emitting anything.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true
+  },
+  "include": ["scripts"]
+}

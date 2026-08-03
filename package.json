@@ -1,0 +1,31 @@
+{
+  "name": "echo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Echo - an AI companion game about rebuilding lost memories",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:backend": "npm run dev --workspace backend",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "typecheck": "npm run typecheck --workspace backend && npm run typecheck --workspace frontend",
+    "e2e": "npm run e2e --workspace backend",
+    "db:up": "docker compose --file database/docker-compose.yml up --detach",
+    "db:down": "docker compose --file database/docker-compose.yml down",
+    "db:migrate": "node database/scripts/migrate.mjs",
+    "db:seed": "node database/scripts/seed.mjs",
+    "db:reset": "node database/scripts/reset.mjs",
+    "db:verify": "node database/scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.4",
+    "post-css-transfer": "^0.0.1"
+  }
+}

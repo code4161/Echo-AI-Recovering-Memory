@@ -1,0 +1,76 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: rgba(6, 8, 18, 0.68);
+  backdrop-filter: blur(6px);
+  animation: fade var(--normal) var(--ease);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.card {
+  position: relative;
+  width: min(420px, 100%);
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--mood) 42%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--mood) 18%, var(--surface-solid)),
+    var(--surface-solid)
+  );
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  animation: pop var(--slow) var(--ease);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.kicker {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mood);
+}
+
+.title {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-lg);
+}
+
+.text {
+  margin-bottom: var(--space-5);
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.halo {
+  position: absolute;
+  inset: -40% 10% auto;
+  height: 200px;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--mood) 45%, transparent), transparent 70%);
+  filter: blur(22px);
+  pointer-events: none;
+}
